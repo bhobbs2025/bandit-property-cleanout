@@ -46,34 +46,11 @@
 
     <section class="contact-form-section">
       <div class="container">
-        <form class="contact-form" id="scheduleForm" onsubmit="return handleSchedule(event)">
-          <div class="form-group">
-            <label for="s_name">Name</label>
-            <input type="text" id="s_name" name="name" required />
-          </div>
-          <div class="form-group">
-            <label for="s_email">Email</label>
-            <input type="email" id="s_email" name="email" required />
-          </div>
-          <div class="form-group">
-            <label for="s_phone">Phone</label>
-            <input type="tel" id="s_phone" name="phone" required />
-          </div>
-          <div class="form-group">
-            <label for="s_address">Property Address</label>
-            <input type="text" id="s_address" name="address" required />
-          </div>
-          <div class="form-group">
-            <label for="s_date">Preferred Date</label>
-            <input type="date" id="s_date" name="date" required />
-          </div>
-          <div class="form-group">
-            <label for="s_time">Preferred Time</label>
-            <input type="time" id="s_time" name="time" required />
-          </div>
-          <button type="submit" class="btn">Request Appointment</button>
-        </form>
-        <p id="scheduleResult" class="form-response" hidden></p>
+        <!-- Embedded Google Form for scheduling appointments -->
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdB7eHNdKp5Gso08PBH0_82kOuLIWnBPcbWQoNSiEHcO09IVQ/viewform?embedded=true"
+        width="640" height="1439" frameborder="0" marginheight="0" marginwidth="0">
+  Loading…
+</iframe>
       </div>
     </section>
 
