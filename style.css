@@ -122,6 +122,60 @@ a:hover {
   color: #ffffff;
 }
 
+/* Highlight phone number in hero */
+.phone {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Fleet section styling */
+.fleet {
+  background-color: #ffffff;
+  padding: 3rem 0;
+}
+
+.fleet h3 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.fleet p {
+  color: var(--color-light-text);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.fleet-img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: var(--border-radius);
+  margin: 1rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Fleet gallery for multiple vehicle images */
+.fleet-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.fleet-gallery img {
+  flex: 1 1 45%;
+  max-width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact page phone line */
+.contact-phone {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+
 /* Hero Section */
 /* Hero section uses a gradient from dark green to accent green */
 .hero {

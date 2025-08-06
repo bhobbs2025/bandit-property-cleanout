@@ -56,8 +56,10 @@ function handleSubmit(event) {
  * @param {string} type Property type key (residential, commercial, abandoned, construction)
  * @returns {number} Estimated cost
  */
-function calculateQuote(size, type) {
-  const baseRate = 0.50; // dollars per square foot
+function calculateQuote(size, type, hasHazard = false, hasLawn = false) {
+  // Updated pricing logic: $2.50 per square foot plus optional fees
+  const baseRate = 2.5; // dollars per square foot
+  // Multipliers allow for complexity differences by property type
   const multipliers = {
     residential: 1.0,
     commercial: 1.2,
@@ -65,7 +67,14 @@ function calculateQuote(size, type) {
     construction: 0.8,
   };
   const multiplier = multipliers[type] || 1.0;
-  return size * baseRate * multiplier;
+  let estimate = size * baseRate * multiplier;
+  if (hasHazard) {
+    estimate += 50; // flat fee for hazardous materials
+  }
+  if (hasLawn) {
+    estimate += 99; // promotional lawn cut for first-time customers
+  }
+  return estimate;
 }
 
 /**
@@ -81,17 +90,27 @@ function handleQuote(event) {
   const name = form.name.value.trim();
   const type = form.type.value;
   const size = parseFloat(form.size.value);
+  const hasHazard = form.hazardous && form.hazardous.checked;
+  const hasLawn = form.lawn && form.lawn.checked;
   if (!name || !type || !size || Number.isNaN(size)) {
     resultEl.textContent = 'Please provide all required fields.';
     resultEl.hidden = false;
     return false;
   }
-  const estimate = calculateQuote(size, type);
+  const estimate = calculateQuote(size, type, hasHazard, hasLawn);
   const formatted = estimate.toLocaleString('en-US', {
     style: 'currency',
     currency: 'USD',
   });
-  resultEl.textContent = `${name}, your estimated cleanout cost is ${formatted}. This price may vary based on on‑site assessment.`;
+  let detail = `${name}, your estimated cleanout cost is ${formatted}.`;
+  if (hasHazard) {
+    detail += ' This includes a $50 hazardous waste handling fee.';
+  }
+  if (hasLawn) {
+    detail += ' This includes our limited‑time $99 lawn cut special.';
+  }
+  detail += ' Final pricing may vary based on on‑site assessment.';
+  resultEl.textContent = detail;
   resultEl.hidden = false;
   // Optionally reset certain fields but keep user input; we leave form intact
   return false;
@@ -114,6 +133,13 @@ function handleSchedule(event) {
     resultEl.hidden = false;
     return false;
   }
+  // Check whether selected date and time fall within availability
+  if (!isWithinAvailability(date, time)) {
+    resultEl.textContent =
+      'Selected date/time is outside our booking window (Mon–Fri 8:00 AM–5:00 PM). Please choose another time.';
+    resultEl.hidden = false;
+    return false;
+  }
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = new Date(date).toLocaleDateString(undefined, options);
   // Format time to human readable
@@ -123,4 +149,41 @@ function handleSchedule(event) {
   // Optionally reset the form
   form.reset();
   return false;
+}
+
+/**
+ * Determine if a date and time fall within the company's availability.
+ * We are available Monday through Friday from 08:00 to 17:00 local time.
+ *
+ * @param {string} dateStr The date in YYYY-MM-DD format
+ * @param {string} timeStr The time in HH:MM format
+ * @returns {boolean} True if within availability, false otherwise
+ */
+function isWithinAvailability(dateStr, timeStr) {
+  try {
+    const dateParts = dateStr.split('-').map(Number);
+    const timeParts = timeStr.split(':').map(Number);
+    const dateObj = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+    const day = dateObj.getDay(); // 0 = Sunday, 1 = Monday, ... 6 = Saturday
+    const hour = timeParts[0];
+    const minute = timeParts[1];
+    // Only Monday–Friday (1–5)
+    if (day < 1 || day > 5) {
+      return false;
+    }
+    // Our schedule is from 08:00 to 17:00 (5pm). Accept exactly 08:00 – 17:00, inclusive
+    const startHour = 8;
+    const endHour = 17;
+    // If before start or after end, not available. Accept end times at 17:00.
+    if (hour < startHour || hour > endHour) {
+      return false;
+    }
+    // If hour equals endHour (17), only accept 17:00 exactly (minute 0)
+    if (hour === endHour && minute > 0) {
+      return false;
+    }
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
