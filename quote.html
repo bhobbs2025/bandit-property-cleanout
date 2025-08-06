@@ -1,0 +1,98 @@
+<!--
+  Quote Page
+
+  This page collects basic information about a cleanout job and provides an
+  estimated quote based on property size and type. The calculation is handled
+  client‑side in JavaScript, using simple multipliers for different job
+  categories. Adjust the pricing logic in script.js as needed.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bandit Property Cleanout - Get a Quote</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="logo-wrapper">
+          <img src="bandit_logo.png" alt="Bandit Property Cleanout logo" class="logo-img" />
+          <h1 class="logo-text">Bandit Property Cleanout</h1>
+        </div>
+        <nav class="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="quote.html" class="active">Get Quote</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-header">
+      <div class="container">
+        <h2>Get an Instant Quote</h2>
+        <p>Fill out the details below to receive an estimated cost for your job.</p>
+      </div>
+    </section>
+
+    <section class="contact-form-section">
+      <div class="container">
+        <form class="contact-form" id="quoteForm" onsubmit="return handleQuote(event)">
+          <div class="form-group">
+            <label for="q_name">Name</label>
+            <input type="text" id="q_name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="q_email">Email</label>
+            <input type="email" id="q_email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="q_phone">Phone (optional)</label>
+            <input type="tel" id="q_phone" name="phone" />
+          </div>
+          <div class="form-group">
+            <label for="q_address">Property Address (optional)</label>
+            <input type="text" id="q_address" name="address" />
+          </div>
+          <div class="form-group">
+            <label for="q_type">Property Type</label>
+            <select id="q_type" name="type" required>
+              <option value="residential">Residential</option>
+              <option value="commercial">Commercial</option>
+              <option value="abandoned">Abandoned</option>
+              <option value="construction">Construction</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="q_size">Approximate Square Footage</label>
+            <input
+              type="number"
+              id="q_size"
+              name="size"
+              min="100"
+              step="10"
+              placeholder="e.g. 1200"
+              required
+            />
+          </div>
+          <button type="submit" class="btn">Calculate Quote</button>
+        </form>
+        <p id="quoteResult" class="form-response" hidden></p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Bandit Property Cleanout. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

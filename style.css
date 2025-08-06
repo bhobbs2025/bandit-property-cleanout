@@ -1,0 +1,306 @@
+/*
+  Global Stylesheet
+
+  Defines the visual look and feel of the website. This file uses CSS
+  variables to standardize colors and spacing. It includes styles for
+  typography, layout containers, navigation, sections, lists, forms, and
+  responsive breakpoints.
+*/
+
+/* CSS Variables for consistent theming */
+:root {
+  /* Primary color palette based on Bandit logo */
+  --color-primary: #354c3c; /* dark green background used for header/hero */
+  --color-secondary: #f7f7f7; /* light gray background */
+  --color-accent: #5a7d6b; /* softer green accent for buttons & highlights */
+  --color-text: #253126; /* rich dark text color for readability */
+  --color-light-text: #4f6652; /* muted gray-green for secondary text */
+  --border-radius: 4px;
+  --max-width: 1100px;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-secondary);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Container wrapper to limit content width */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 1rem;
+}
+
+/* Header / Navbar */
+.header {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  color: #fff;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+}
+
+.nav a:hover,
+.nav a.active {
+  background-color: var(--color-accent);
+}
+
+/* Logo wrapper styles */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Logo image sizing */
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+/* Logo text styling */
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* Call‑to‑action button wrapper */
+.cta-wrapper {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* Secondary button style */
+.btn.btn-secondary {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.btn.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+/* Hero Section */
+/* Hero section uses a gradient from dark green to accent green */
+.hero {
+  background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+  color: #ffffff;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #fff;
+  color: var(--color-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+/* Features Section */
+.features {
+  background-color: #fff;
+  padding: 3rem 0;
+}
+
+.features .feature {
+  margin-bottom: 2rem;
+}
+
+.features h3 {
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.features p {
+  color: var(--color-light-text);
+}
+
+/* Page Header Section for subpages */
+.page-header {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.page-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+/* About content */
+.about-content {
+  background-color: #fff;
+  padding: 3rem 0;
+}
+
+.about-content h3 {
+  margin-top: 2rem;
+  color: var(--color-primary);
+}
+
+.about-content p {
+  margin-top: 0.5rem;
+  color: var(--color-light-text);
+  line-height: 1.7;
+}
+
+/* Services List */
+.services-list {
+  background-color: #fff;
+  padding: 3rem 0;
+}
+
+.service-item {
+  margin-bottom: 2rem;
+}
+
+.service-item h3 {
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.service-item p {
+  color: var(--color-light-text);
+}
+
+/* Contact Form */
+.contact-form-section {
+  background-color: #fff;
+  padding: 3rem 0;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--color-secondary);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.form-response {
+  margin-top: 1rem;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+/* Responsive breakpoints */
+@media (min-width: 600px) {
+  .features .container {
+    display: flex;
+    gap: 2rem;
+  }
+  .features .feature {
+    flex: 1;
+  }
+  .services-list .container {
+    display: flex;
+    gap: 2rem;
+  }
+  .service-item {
+    flex: 1;
+  }
+}
