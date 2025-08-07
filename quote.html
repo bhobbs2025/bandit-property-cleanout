@@ -36,11 +36,12 @@
 
     <section class="page-header">
       <div class="container">
+        <!-- Header for instant quote and request form -->
         <h2>Get an Instant Quote</h2>
         <p>
           Enter your project details to receive an instant estimate. We charge
-          $2.50 per square foot for basic cleanouts. Add $50 for hazardous waste
-          handling and take advantage of our limited‑time $99 lawn cut for
+          $2.50 per square foot for basic cleanouts. Add $50 for hazardous
+          waste handling and take advantage of our limited‑time $99 lawn cut for
           first‑time customers.
         </p>
       </div>
@@ -48,6 +49,7 @@
 
     <section class="contact-form-section">
       <div class="container">
+        <!-- Instant quote form using client-side JavaScript -->
         <form class="contact-form" id="quoteForm" onsubmit="return handleQuote(event)">
           <div class="form-group">
             <label for="q_name">Name</label>
@@ -86,7 +88,6 @@
               required
             />
           </div>
-
           <div class="form-group">
             <label for="q_hazard">
               <input type="checkbox" id="q_hazard" name="hazardous" />
@@ -102,6 +103,22 @@
           <button type="submit" class="btn">Calculate Quote</button>
         </form>
         <p id="quoteResult" class="form-response" hidden></p>
+
+        <!-- Additional Google Form for detailed quote requests -->
+        <p style="margin-top: 2rem;">
+          Prefer us to calculate everything for you? Fill out the detailed form
+          below and we'll get back to you with a personalized estimate.
+        </p>
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLScdw2iYoFT3lWTY16zfOr5Rsj5jvsCn9UUAdTq1gSGan3KFKQ/viewform?embedded=true"
+          width="640"
+          height="991"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+        >
+          Loading…
+        </iframe>
       </div>
     </section>
 
