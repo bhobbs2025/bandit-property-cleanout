@@ -1,5 +1,44 @@
-<iframe src="Bandit_Price_Guide.pdf#view=FitH" width="100%" height="800"
-        style="border:1px solid #ccc;border-radius:8px;"></iframe>
-<p style="text-align:center;color:#666;margin-top:8px;">
-  Can't see the PDF? <a href="https://github.com/bhobbs2025/bandit-property-cleanout/blob/main/Bandit%20Price%20Guide.pdf" target="_blank" rel="noopener">Open it in a new tab</a>.
-</p>
+<div class="price-guide">
+  <h2>Bandit Property Cleanout — Price Guide</h2>
+  <p>📞 601-647-4019 • Hinds &amp; Rankin County<br>
+  <em>Like it was never there.</em></p>
+  <ul>
+    <li><strong>Residential Haul (F150 — light loads)</strong>
+      <ul>
+        <li>Small pickup load — starting at $150 + dump fee</li>
+        <li>Half dump trailer (~6–7 yd³) — $250 + dump fee</li>
+        <li>Full dump trailer (~14 yd³) — $400 + dump fee</li>
+        <li>Typical dump fee: $40–$100 per load (varies by weight)</li>
+      </ul>
+    </li>
+    <li><strong>Commercial Haul (F250 — heavy loads)</strong>
+      <ul>
+        <li>Heavy materials (shingles, dirt, concrete): priced by weight/ton</li>
+        <li>Full trailer heavy load — from $450 + dump fee</li>
+        <li>Priority scheduling available for property managers &amp; realtors</li>
+      </ul>
+    </li>
+    <li><strong>Lawn Care</strong>
+      <ul>
+        <li>Mow &amp; trim — starting at $60 (standard residential lot)</li>
+        <li>Hedge trimming — $40/hr</li>
+        <li>Limb cutting — $75/hr (chainsaw add-on +$25)</li>
+        <li>Yard cleanup (leaves/branches) — $75–$150</li>
+      </ul>
+    </li>
+    <li><strong>Common Add-ons &amp; Fees</strong>
+      <ul>
+        <li>Perishables/rotting waste handling — +$50</li>
+        <li>Hazardous materials (paint/chemicals) — +$75+ (by type)</li>
+        <li>Tires — $10–$15 each</li>
+        <li>Travel surcharge — $1/mile after first 20 one-way miles</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<!-- Your existing contact form should remain below this section -->
+<!-- Example: -->
+<form action="..." method="post">
+  <!-- form fields here -->
+</form>
